@@ -3,7 +3,7 @@ name: restraunt-recommender
 run-name: PR checker
 
 on:
-  pull-request:
+  pull_request:
     branches:
       - main
 
