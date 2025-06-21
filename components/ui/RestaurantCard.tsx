@@ -1,6 +1,6 @@
-import React from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
-import { MaterialIcons, FontAwesome } from '@expo/vector-icons';
+import React from "react";
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { MaterialIcons, FontAwesome } from "@expo/vector-icons";
 
 interface RestaurantCardProps {
   imageUrl: string;
@@ -28,9 +28,9 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({
             <Text style={styles.ratingText}>{rating}</Text>
           </View>
           <FontAwesome
-            name={isFavorited ? 'heart' : 'heart-o'}
+            name={isFavorited ? "heart" : "heart-o"}
             size={20}
-            color={isFavorited ? 'red' : '#555'}
+            color={isFavorited ? "red" : "#555"}
           />
         </View>
       </View>
@@ -41,16 +41,16 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({
 const styles = StyleSheet.create({
   card: {
     borderWidth: 1,
-    borderColor: '#000000',
+    borderColor: "#000000",
     borderRadius: 10,
-    overflow: 'hidden',
+    overflow: "hidden",
     marginBottom: 16,
-    backgroundColor: 'white',
+    backgroundColor: "white",
     elevation: 2,
-    width: '50%',
+    width: "50%",
   },
   image: {
-    width: '100%',
+    width: "100%",
     height: 120,
   },
   content: {
@@ -58,22 +58,22 @@ const styles = StyleSheet.create({
   },
   name: {
     fontSize: 16,
-    fontWeight: '600',
+    fontWeight: "600",
     marginBottom: 8,
   },
   footer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
   rating: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
   },
   ratingText: {
     marginLeft: 4,
     fontSize: 14,
-    color: '#333',
+    color: "#333",
   },
 });
 
