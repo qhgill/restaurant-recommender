@@ -13,15 +13,21 @@ interface ScrollableTagsProps {
 const ScrollableTags: React.FC<ScrollableTagsProps> = ({ label, tags }) => {
     return (
         <View>
-            <Text style={styles.label}>{label} </Text>
+            <Text style={styles.label}>{label}</Text>
             <ScrollView
                 horizontal
                 showsHorizontalScrollIndicator={false}
                 contentContainerStyle={styles.scrollContainer}
             >
-                {tags.map(tag => (
-                    <View key={tag} style={styles.bubble}>
-                        <Text style={styles.bubbleText}>Tag</Text>
+                {tags.map((tag, idx) => (
+                    <View
+                        key={tag}
+                        style={[
+                            styles.bubble,
+                            idx !== tags.length - 1 && styles.bubbleSpacing, 
+                        ]}
+                    >
+                        <Text style={styles.bubbleText}>{tag}</Text>
                     </View>
                 ))}
             </ScrollView>
@@ -30,35 +36,46 @@ const ScrollableTags: React.FC<ScrollableTagsProps> = ({ label, tags }) => {
 }
 
 const styles = StyleSheet.create({
-    label: {
-        fontWeight: 'bold',
-        fontSize: 16,
-        marginBottom: 8,
-        color: '#444',
-    },
-    scrollContainer: {
-        flexDirection: 'row',
-        gap: 16,
-        paddingVertical: 16,
-        backgroundColor: '#f3f4f6',
-        borderRadius: 16,
-        paddingHorizontal: 8,
-    },
-    bubble: {
-        backgroundColor: '#f1f5f9',
-        paddingVertical: 10,
-        paddingHorizontal: 24,
-        borderRadius: 999,
-        marginRight: 16,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    bubbleText: {
-        color: '#22223b',
-        fontSize: 16,
-        fontWeight: '500',
-    },
-}
-);
+  wrapper: {
+    backgroundColor: '#b3b5b9', 
+    borderRadius: 16,
+    padding: 12,
+    margin: 16,
+  },
+  label: {
+    fontWeight: 'bold',
+    fontSize: 16,
+    marginBottom: 4,
+    marginLeft: 10,
+    color: '#444',
+  },
+  scrollContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 10,
+    marginLeft:10
+  },
+  bubble: {
+    backgroundColor: '#e3e3e3', 
+    paddingVertical: 10,
+    paddingHorizontal: 24,
+    borderRadius: 999,
+    justifyContent: 'center',
+    alignItems: 'center',
+    elevation: 2,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.08,
+    shadowRadius: 2,
+  },
+  bubbleSpacing: {
+    marginRight: 15, 
+  },
+  bubbleText: {
+    color: '#22223b',
+    fontSize: 16,
+    fontWeight: '500',
+  },
+});
 
 export default ScrollableTags;

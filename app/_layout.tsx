@@ -4,7 +4,10 @@ import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import 'react-native-reanimated';
 
+import ScrollableTags from '@/components/ui/ScrollableTags';
 import { useColorScheme } from '@/hooks/useColorScheme';
+
+const tags = ['tag1', 'tag2', 'tag3', 'tag4', 'tag5', 'tag6', 'tag7', 'tag8', 'tag9', 'tag10', 'tag11']
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
@@ -24,6 +27,11 @@ export default function RootLayout() {
         <Stack.Screen name="+not-found" />
       </Stack>
       <StatusBar style="auto" />
+      
+      <ScrollableTags
+        label='Tags'
+        tags={tags} />
+        
     </ThemeProvider>
   );
 }
