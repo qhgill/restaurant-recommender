@@ -12,10 +12,21 @@ interface ScrollableFiltersProps {
 }
 
 const ScrollableFilters: React.FC<ScrollableFiltersProps> = ({ filters }) => {
-  const [activeTag, setActiveTag] = useState<string | null>(null);
-  const orderedfilters = activeTag
-    ? [activeTag, ...filters.filter((tag) => tag !== activeTag)]
-    : filters;
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+
+  const toggleTag = (tag: string) => {
+    setSelectedTags((selectedTags) =>
+      selectedTags.includes(tag)
+        ? selectedTags.filter((t) => t !== tag)
+        : [...selectedTags, tag],
+    );
+  };
+
+  // Optionally, move selected tags to the front:
+  const orderedTags = [
+    ...selectedTags,
+    ...filters.filter((tag) => !selectedTags.includes(tag)),
+  ];
 
   return (
     <View style={styles.row}>
@@ -24,20 +35,20 @@ const ScrollableFilters: React.FC<ScrollableFiltersProps> = ({ filters }) => {
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.scrollContainer}
       >
-        {orderedfilters.map((tag, idx) => (
+        {orderedTags.map((tag, idx) => (
           <TouchableOpacity
             key={tag}
-            onPress={() => setActiveTag(tag)}
+            onPress={() => toggleTag(tag)}
             style={[
               styles.bubble,
-              idx !== orderedfilters.length - 1 && styles.bubbleSpacing,
-              tag === activeTag && styles.activeBubble,
+              idx !== orderedTags.length - 1 && styles.bubbleSpacing,
+              selectedTags.includes(tag) && styles.activeBubble,
             ]}
           >
             <Text
               style={[
                 styles.bubbleText,
-                tag === activeTag && styles.activeBubbleText,
+                selectedTags.includes(tag) && styles.activeBubbleText,
               ]}
             >
               {tag}
@@ -53,7 +64,7 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#b3b5b9",
+    backgroundColor: "#fffff",
     borderRadius: 16,
     padding: 12,
     margin: 16,
@@ -64,7 +75,7 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
   },
   bubble: {
-    backgroundColor: "#fff",
+    backgroundColor: "#f3f4f6",
     paddingVertical: 10,
     paddingHorizontal: 24,
     borderRadius: 999,

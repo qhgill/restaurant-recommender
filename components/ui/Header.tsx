@@ -1,13 +1,13 @@
+import {
+  Lobster_400Regular,
+  useFonts as useLobsterFont,
+} from "@expo-google-fonts/lobster";
+import {
+  Poppins_400Regular,
+  useFonts as usePoppinsFonts,
+} from "@expo-google-fonts/poppins";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import {
-  useFonts as usePoppinsFonts,
-  Poppins_400Regular,
-} from "@expo-google-fonts/poppins";
-import {
-  useFonts as useLobsterFont,
-  Lobster_400Regular,
-} from "@expo-google-fonts/lobster";
 
 const Header = () => {
   const [poppinsLoaded] = usePoppinsFonts({
