@@ -9,9 +9,21 @@ import { StatusBar } from "expo-status-bar";
 import "react-native-reanimated";
 import { useColorScheme } from "@/hooks/useColorScheme";
 import RestaurantCard from "@/components/ui/RestaurantCard";
-import ScrollableTags from '@/components/ui/ScrollableTags';
+import ScrollableTags from "@/components/ui/ScrollableTags";
 
-const tags = ['tag1', 'tag2', 'tag3', 'tag4', 'tag5', 'tag6', 'tag7', 'tag8', 'tag9', 'tag10', 'tag11']
+const tags = [
+  "tag1",
+  "tag2",
+  "tag3",
+  "tag4",
+  "tag5",
+  "tag6",
+  "tag7",
+  "tag8",
+  "tag9",
+  "tag10",
+  "tag11",
+];
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
@@ -36,11 +48,9 @@ export default function RootLayout() {
         name="Spicy Dragon Noodles"
         rating={4.6}
         isFavorited={true}
-        onPress={() => console.log('Card pressed')} />
-      <ScrollableTags
-      label='Tags'
-      tags={tags} />
-
+        onPress={() => console.log("Card pressed")}
+      />
+      <ScrollableTags label="Tags" tags={tags} />
     </ThemeProvider>
   );
 }
