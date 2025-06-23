@@ -21,7 +21,7 @@ const ScrollableFilters: React.FC<ScrollableFiltersProps> = ({ filters }) => {
         : [...selectedTags, tag],
     );
   };
-  
+
   const orderedTags = [
     ...selectedTags,
     ...filters.filter((tag) => !selectedTags.includes(tag)),
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
   activeBubble: {
-    backgroundColor: "#6366f1",
+    backgroundColor: "#ef2a39",
   },
   activeBubbleText: {
     color: "#fff",
