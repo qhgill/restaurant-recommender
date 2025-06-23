@@ -8,7 +8,10 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "format": "npx prettier --write .",
+    "check": "npx prettier --check .",
+    "prepare": "husky"
   },
   "dependencies": {
     "@expo-google-fonts/lobster": "^0.4.0",
@@ -45,6 +48,10 @@
     "@types/react": "~19.0.10",
     "eslint": "^9.25.0",
     "eslint-config-expo": "~9.2.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-prettier": "^5.5.0",
+    "husky": "^9.1.7",
+    "prettier": "^3.5.3",
     "typescript": "~5.8.3"
   },
   "private": true
