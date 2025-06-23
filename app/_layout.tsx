@@ -1,3 +1,7 @@
+import RestaurantCard from "@/components/ui/RestaurantCard";
+import ScrollableFilters from "@/components/ui/ScrollableFilters";
+import ScrollableTags from "@/components/ui/ScrollableTags";
+import { useColorScheme } from "@/hooks/useColorScheme";
 import {
   DarkTheme,
   DefaultTheme,
@@ -7,10 +11,6 @@ import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import "react-native-reanimated";
-import { useColorScheme } from "@/hooks/useColorScheme";
-import RestaurantCard from "@/components/ui/RestaurantCard";
-import ScrollableTags from "@/components/ui/ScrollableTags";
-
 const tags = [
   "tag1",
   "tag2",
@@ -24,6 +24,8 @@ const tags = [
   "tag10",
   "tag11",
 ];
+
+const filters = ["Sort", "Open Now", "Price", "Vegan", "Vegetarian", "Kosher"];
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
@@ -43,6 +45,8 @@ export default function RootLayout() {
         <Stack.Screen name="+not-found" />
       </Stack>
       <StatusBar style="auto" />
+      <ScrollableFilters filters={filters} />
+
       <RestaurantCard
         imageUrl="https://images.unsplash.com/photo-1528605248644-14dd04022da1"
         name="Spicy Dragon Noodles"
