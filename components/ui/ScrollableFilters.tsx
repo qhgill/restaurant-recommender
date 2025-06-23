@@ -21,8 +21,7 @@ const ScrollableFilters: React.FC<ScrollableFiltersProps> = ({ filters }) => {
         : [...selectedTags, tag],
     );
   };
-
-  // Optionally, move selected tags to the front:
+  
   const orderedTags = [
     ...selectedTags,
     ...filters.filter((tag) => !selectedTags.includes(tag)),
