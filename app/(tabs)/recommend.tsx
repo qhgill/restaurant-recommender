@@ -7,7 +7,6 @@ import React, { useState } from "react";
 import { Checkbox } from "react-native-paper";
 import AppButton from "@/components/ui/AppButton";
 
-
 export default function RecommendScreen() {
   const [checked1, setChecked1] = useState(false);
   const [checked2, setChecked2] = useState(false);

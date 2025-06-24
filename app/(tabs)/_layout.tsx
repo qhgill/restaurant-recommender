@@ -46,14 +46,14 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name = "recommend"
+        name="recommend"
         options={{
           title: "Recommend",
           tabBarIcon: ({ color }) => (
             <IconSymbol size={28} name="star.fill" color={color} />
           ),
         }}
-        />
+      />
     </Tabs>
   );
 }
