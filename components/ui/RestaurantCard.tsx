@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { MaterialIcons, FontAwesome } from "@expo/vector-icons";
 
-interface RestaurantCardProps {
+export interface RestaurantCardProps {
   imageUrl: string;
   name: string;
   rating: number;
