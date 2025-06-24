@@ -14,7 +14,7 @@ export default function testScreen() {
       <Text style={styles.text}>test test test test test</Text>
       <AppButton
         text="Recommend"
-        linkTo="recommend"
+        linkTo="(tabs)/recommend"
       />
     </View>
   );

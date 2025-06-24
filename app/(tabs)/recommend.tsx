@@ -1,12 +1,21 @@
 import { Image } from "expo-image";
 import { Platform, StyleSheet } from "react-native";
-import { HelloWave } from "@/components/HelloWave";
 import ParallaxScrollView from "@/components/ParallaxScrollView";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
-import Header from "@/components/ui/Header";
+import React, { useState } from "react";
+import { Checkbox } from "react-native-paper";
+import AppButton from "@/components/ui/AppButton";
+
 
 export default function RecommendScreen() {
+  const [checked1, setChecked1] = useState(false);
+  const [checked2, setChecked2] = useState(false);
+  const [checked3, setChecked3] = useState(false);
+  const [checked4, setChecked4] = useState(false);
+  const [checked5, setChecked5] = useState(false);
+  const [checked6, setChecked6] = useState(false);
+
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: "#A1CEDC", dark: "#1D3D47" }}
@@ -18,45 +27,54 @@ export default function RecommendScreen() {
       }
     >
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <Header />
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit{" "}
-          <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText>{" "}
-          to see changes. Press{" "}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: "cmd + d",
-              android: "cmd + m",
-              web: "F12",
-            })}
-          </ThemedText>{" "}
-          to open developer tools.
-        </ThemedText>
+        <ThemedText type="title">Recommendation Questions:</ThemedText>
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
+        <ThemedText type="subtitle">Step 1: Cuisines</ThemedText>
+        <Checkbox.Item
+          label="I like Italian cuisine"
+          status={checked1 ? "checked" : "unchecked"}
+          style={{ paddingVertical: 0, marginVertical: 0 }}
+          onPress={() => setChecked1(!checked1)}
+        />
+        <Checkbox.Item
+          label="I prefer Asian cuisines"
+          status={checked2 ? "checked" : "unchecked"}
+          style={{ paddingVertical: 0, marginVertical: 0 }}
+          onPress={() => setChecked2(!checked2)}
+        />
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">
-            npm run reset-project
-          </ThemedText>{" "}
-          to get a fresh <ThemedText type="defaultSemiBold">app</ThemedText>{" "}
-          directory. This will move the current{" "}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{" "}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
+        <ThemedText type="subtitle">Step 2: Foods</ThemedText>
+        <Checkbox.Item
+          label="I like spicy food"
+          status={checked3 ? "checked" : "unchecked"}
+          style={{ paddingVertical: 0, marginVertical: 0 }}
+          onPress={() => setChecked3(!checked3)}
+        />
+        <Checkbox.Item
+          label="I prefer vegetarian options"
+          status={checked4 ? "checked" : "unchecked"}
+          style={{ paddingVertical: 0, marginVertical: 0 }}
+          onPress={() => setChecked4(!checked4)}
+        />
       </ThemedView>
+      <ThemedView style={styles.stepContainer}>
+        <ThemedText type="subtitle">Step 3: Pricing/Allergies</ThemedText>
+        <Checkbox.Item
+          label="I am willing to spend more for quality"
+          status={checked5 ? "checked" : "unchecked"}
+          style={{ paddingVertical: 0, marginVertical: 0 }}
+          onPress={() => setChecked5(!checked5)}
+        />
+        <Checkbox.Item
+          label="I am allergic to nuts"
+          status={checked6 ? "checked" : "unchecked"}
+          style={{ paddingVertical: 0, marginVertical: 0 }}
+          onPress={() => setChecked6(!checked6)}
+        />
+      </ThemedView>
+      <AppButton text="Gemerate Recommendation" linkTo="test" />
     </ParallaxScrollView>
   );
 }
