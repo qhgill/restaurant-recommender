@@ -15,16 +15,16 @@ const ScrollableFilters: React.FC<ScrollableFiltersProps> = ({ filters }) => {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
   const toggleTag = (tag: string) => {
-    setSelectedTags((selectedTags) =>
+    setSelectedTags(selectedTags =>
       selectedTags.includes(tag)
-        ? selectedTags.filter((t) => t !== tag)
+        ? selectedTags.filter(t => t !== tag)
         : [...selectedTags, tag],
     );
   };
 
   const orderedTags = [
     ...selectedTags,
-    ...filters.filter((tag) => !selectedTags.includes(tag)),
+    ...filters.filter(tag => !selectedTags.includes(tag)),
   ];
 
   return (
