@@ -11,6 +11,7 @@ import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import "react-native-reanimated";
+import { PaperProvider } from "react-native-paper";
 const tags = [
   "tag1",
   "tag2",
@@ -39,22 +40,24 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      <StatusBar style="auto" />
-      <ScrollableFilters filters={filters} />
+    <PaperProvider>
+      <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+        <Stack>
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="+not-found" />
+        </Stack>
+        <StatusBar style="auto" />
+        <ScrollableFilters filters={filters} />
 
-      <RestaurantCard
-        imageUrl="https://images.unsplash.com/photo-1528605248644-14dd04022da1"
-        name="Spicy Dragon Noodles"
-        rating={4.6}
-        isFavorited={true}
-        onPress={() => console.log("Card pressed")}
-      />
-      <ScrollableTags label="Tags" tags={tags} />
-    </ThemeProvider>
+        <RestaurantCard
+          imageUrl="https://images.unsplash.com/photo-1528605248644-14dd04022da1"
+          name="Spicy Dragon Noodles"
+          rating={4.6}
+          isFavorited={true}
+          onPress={() => console.log("Card pressed")}
+        />
+        <ScrollableTags label="Tags" tags={tags} />
+      </ThemeProvider>
+    </PaperProvider>
   );
 }

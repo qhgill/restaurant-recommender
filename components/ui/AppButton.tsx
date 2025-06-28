@@ -5,7 +5,7 @@ import {
   StyleSheet,
   GestureResponderEvent,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { useRouter } from "expo-router";
 
 type Props = {
   text: string;
@@ -22,7 +22,7 @@ const AppButton: React.FC<Props> = ({
   onPress,
   linkTo,
 }) => {
-  const navigation = useNavigation();
+  const router = useRouter();
 
   // onPress overrides navigation
   const handlePress = (event: GestureResponderEvent) => {
@@ -30,7 +30,7 @@ const AppButton: React.FC<Props> = ({
       onPress(event);
     } else if (linkTo) {
       console.log("Navigating to:", linkTo);
-      navigation.navigate(linkTo as never);
+      router.push(linkTo);
     }
   };
 

@@ -12,10 +12,7 @@ export default function testScreen() {
       }}
     >
       <Text style={styles.text}>test test test test test</Text>
-      <AppButton
-        text="Recommend"
-        onPress={() => console.log("Recommend pressed")}
-      />
+      <AppButton text="Recommend" linkTo="(tabs)/recommend" />
     </View>
   );
 }
