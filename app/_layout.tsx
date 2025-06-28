@@ -11,11 +11,7 @@ import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import "react-native-reanimated";
-<<<<<<< HEAD
 import { PaperProvider } from "react-native-paper";
-
-import { useColorScheme } from "@/hooks/useColorScheme";
-=======
 const tags = [
   "tag1",
   "tag2",
@@ -31,7 +27,6 @@ const tags = [
 ];
 
 const filters = ["Sort", "Open Now", "Price", "Vegan", "Vegetarian", "Kosher"];
->>>>>>> f0ce0f475de97a5e666278c7a11da260f16b0e59
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
@@ -45,17 +40,7 @@ export default function RootLayout() {
   }
 
   return (
-<<<<<<< HEAD
     <PaperProvider>
-      <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-        <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="+not-found" />
-        </Stack>
-        <StatusBar style="auto" />
-      </ThemeProvider>
-    </PaperProvider>
-=======
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
@@ -73,6 +58,6 @@ export default function RootLayout() {
       />
       <ScrollableTags label="Tags" tags={tags} />
     </ThemeProvider>
->>>>>>> f0ce0f475de97a5e666278c7a11da260f16b0e59
+    </PaperProvider>
   );
 }
