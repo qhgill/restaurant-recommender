@@ -5,14 +5,13 @@ import { ScrollView, StyleSheet, Text, View } from "react-native";
 //const label = 'Tags';
 
 interface ScrollableTagsProps {
-  label: string;
   tags: string[];
 }
 
-const ScrollableTags: React.FC<ScrollableTagsProps> = ({ label, tags }) => {
+const ScrollableTags: React.FC<ScrollableTagsProps> = ({ tags }) => {
   return (
-    <View>
-      <Text style={styles.label}>{label}</Text>
+    <View style={{ backgroundColor: "#DEDEDE" }}>
+      <Text style={styles.label}>Tags</Text>
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
@@ -46,7 +45,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginBottom: 4,
     marginLeft: 10,
-    color: "#444",
+    color: "#7C7C7C",
   },
   scrollContainer: {
     flexDirection: "row",
@@ -55,7 +54,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   bubble: {
-    backgroundColor: "#e3e3e3",
+    backgroundColor: "#F3F4F6",
     paddingVertical: 10,
     paddingHorizontal: 24,
     borderRadius: 999,
@@ -71,7 +70,7 @@ const styles = StyleSheet.create({
     marginRight: 15,
   },
   bubbleText: {
-    color: "#22223b",
+    color: "#6A6A6A",
     fontSize: 16,
     fontWeight: "500",
   },
