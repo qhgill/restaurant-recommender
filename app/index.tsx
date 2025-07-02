@@ -11,7 +11,7 @@ export default function buttonTest() {
         gap: 16,
       }}
     >
-      <AppButton text="Go to Test" linkTo="test" />
+      <AppButton text="Go to Profile" linkTo="profile"/>
     </View>
   );
 }

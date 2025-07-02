@@ -11,6 +11,8 @@ type Props = {
   text: string;
   buttonColor?: string;
   textColor?: string;
+  borderColor?: string;
+  borderWidth?: number;
   onPress?: (event: GestureResponderEvent) => void;
   linkTo?: string;
 };
@@ -19,6 +21,8 @@ const AppButton: React.FC<Props> = ({
   text,
   buttonColor = "#FF5959",
   textColor = "#FFFFFF",
+  borderColor = "transparent",
+  borderWidth = 0,
   onPress,
   linkTo,
 }) => {
@@ -36,7 +40,10 @@ const AppButton: React.FC<Props> = ({
 
   return (
     <TouchableOpacity
-      style={[styles.button, { backgroundColor: buttonColor }]}
+      style={[
+        styles.button,
+        { backgroundColor: buttonColor, borderColor, borderWidth },
+      ]}
       onPress={handlePress}
     >
       <Text style={[styles.text, { color: textColor }]}>{text}</Text>
